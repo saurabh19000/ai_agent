@@ -1,0 +1,52 @@
+services:
+  # ── Backend (FastAPI + AI Agent combined) ──
+  - type: web
+    name: backend
+    runtime: python
+    region: oregon
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: python -u main.py
+    healthCheckPath: /livekit-url
+    envVars:
+      - key: LIVEKIT_URL
+        sync: false
+      - key: LIVEKIT_API_KEY
+        sync: false
+      - key: LIVEKIT_API_SECRET
+        sync: false
+      - key: GOOGLE_API_KEY
+        sync: false
+      - key: LLM_PROVIDER
+        value: openai
+      - key: LLM_MODEL
+        value: llama-3.3-70b-versatile
+      - key: LLM_BASE_URL
+        value: https://api.groq.com/openai/v1
+      - key: LLM_API_KEY
+        sync: false
+      - key: CARTESIA_API_KEY
+        sync: false
+      - key: DEEPGRAM_API_KEY
+        sync: false
+      - key: HRMS_BACKEND_URL
+        sync: false
+      - key: TTS_VOICE_ID
+        sync: false
+      - key: EMBEDDINGS_MODEL
+        sync: false
+      - key: CORS_ORIGINS
+        sync: false
+      - key: TOKEN_SERVER_PUBLIC_URL
+        sync: false
+
+  # ── Frontend (React static site) ──
+  - type: static-site
+    name: frontend
+    region: oregon
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_BACKEND_URL
+        sync: false

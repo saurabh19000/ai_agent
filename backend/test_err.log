@@ -1,0 +1,35 @@
+2026-06-30 09:37:12,675 - livekit.agents - INFO - starting worker
+2026-06-30 09:37:12,676 - livekit.agents - INFO - plugin registered
+2026-06-30 09:37:12,677 - livekit.agents - INFO - plugin registered
+2026-06-30 09:37:12,678 - livekit.agents - INFO - plugin registered
+2026-06-30 09:37:12,693 - livekit.agents - INFO - plugin registered
+2026-06-30 09:37:12,694 - livekit.agents - INFO - plugin registered
+2026-06-30 09:37:12,695 - livekit.agents - INFO - plugin registered
+2026-06-30 09:37:12,696 - livekit.agents - INFO - starting inference executor
+2026-06-30 09:37:12,872 - livekit.agents - INFO - initializing process
+INFO:     Started server process [28352]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8091 (Press CTRL+C to quit)
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    from multiprocessing.spawn import spawn_main; spawn_main(parent_pid=28352, pipe_handle=1232)
+                                                  ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rspl\AppData\Local\Programs\Python\Python314\Lib\multiprocessing\spawn.py", line 122, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "C:\Users\Rspl\AppData\Local\Programs\Python\Python314\Lib\multiprocessing\spawn.py", line 132, in _main
+    self = reduction.pickle.load(from_parent)
+  File "C:\Users\Rspl\AppData\Local\Programs\Python\Python314\Lib\multiprocessing\reduction.py", line 238, in _rebuild_socket
+    return ds.detach()
+           ~~~~~~~~~^^
+  File "C:\Users\Rspl\AppData\Local\Programs\Python\Python314\Lib\multiprocessing\resource_sharer.py", line 38, in detach
+    with _resource_sharer.get_connection(self._id) as conn:
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Rspl\AppData\Local\Programs\Python\Python314\Lib\multiprocessing\resource_sharer.py", line 86, in get_connection
+    c = Client(address, authkey=process.current_process().authkey)
+  File "C:\Users\Rspl\AppData\Local\Programs\Python\Python314\Lib\multiprocessing\connection.py", line 550, in Client
+    c = PipeClient(address)
+  File "C:\Users\Rspl\AppData\Local\Programs\Python\Python314\Lib\multiprocessing\connection.py", line 761, in PipeClient
+    _winapi.WaitNamedPipe(address, 1000)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] The system cannot find the file specified
