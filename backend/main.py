@@ -4,12 +4,12 @@ import threading
 import uvicorn
 
 # pyrefly: ignore [missing-import]
-from agent import server
-# pyrefly: ignore [missing-import]
 from token_server import app
 
 
 def start_agent():
+    # pyrefly: ignore [missing-import]
+    from agent import server
     asyncio.run(server.run())
 
 
